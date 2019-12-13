@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/style.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+<body>
+    <div class="LeftBar">
+        <div class="Logo">
+            <img src="/assets/logo.svg" alt="UTFaq" class="UtfaqLogo" />
+        </div>
+        <div class="mainQuestions">
+            <input type="text" class="searchBox" placeholder="Principais Duvidas" name="search" id="search" value=""><br><br>
+        </div>
+	<br><br>  
+        <div class="Questions" id="questions">
+            <ul class="post"> 
+                {{#each questions as |q|}}
+                    <li>{{q.texto}}</li>
+                {{/each}}
+            </ul>        
+        </div><br><br>     
+        </div>
+        <div class="MainArea">
+            <div class="headPage">
+                <div class="Intro">
+                    <p class="IntroTxt">Tire aqui sua dúvida!!</p>
+                </div>
+                <div class="RestrictedArea">
+                    <button class="RestArea" type="button" >Área Restrita</button>
+                </div>
+            </div>
+            <div class="Chat">
+
+            </div>
+            <div class="Send">
+                <div class="Conversation">
+                    <input class="newMsg"
+                        placeholder="Digite sua dúvida"
+                        name="novaMsg" id="titulo_publica" value=""
+                    />
+                    <button class="sendBtn" type="submit" id="publica">Enviar</button>
+                </div>
+            </div>
+        </div>
+
+
+       <script type="text/javascript" charset="utf-8">
+
+                var titulo_publica = document.querySelector("#titulo_publica");
+			    var publica = document.querySelector("#publica");
+			    var questions = document.querySelector("#questions");
+			    var search = document.querySelector("#search");
+
+			    var loading = '<center><img src="/assets/loading.svg" /></center>';
+
+			    function JSONtoHTML(json_duvida)
+			    {
+				    var html_duvida = "";
+				    for (var i in json_duvida) {
+				    html_duvida += '<li>' + json_duvida[i].texto + '</li>';
+				    }
+				    return html_duvida;
+			    }
+
+			    publica.addEventListener("click", function(){
+				    questions.innerHTML = loading;
+				    var xmlhttp = new XMLHttpRequest();
+				    xmlhttp.open("POST", "publica", true);
+				    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				    xmlhttp.onreadystatechange = function() {
+					    if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+					    {	
+						    questions.innerHTML = JSONtoHTML(JSON.parse(xmlhttp.responseText));
+						    search.value = "";
+					    }
+				    };                 
+
+				    xmlhttp.send("titulo_publica=" + titulo_publica.value);
+
+                    titulo_publica.value= '';
+			    });
+			
+			    setInterval(function(){
+				    if (search.value == "")
+				    {
+					    questions.innerHTML = loading;
+					    var xmlhttp = new XMLHttpRequest();
+					    xmlhttp.open("GET", "musicas", true);
+					    xmlhttp.onreadystatechange = function() {
+						    if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+						    {	
+							    questions.innerHTML = JSONtoHTML(JSON.parse(xmlhttp.responseText));
+						    }
+					    };
+					xmlhttp.send();
+				    }   
+			    }, 20000);
+
+			    search.addEventListener("keyup", function live_search() {
+				    questions.innerHTML = loading;
+				    var xmlhttp = new XMLHttpRequest();
+				    xmlhttp.open("POST", "pesquisa", true);
+				    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				    xmlhttp.onreadystatechange = function() {
+					    if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+					    {	
+						    questions.innerHTML = JSONtoHTML(JSON.parse(xmlhttp.responseText));
+					    }
+				    };
+				    xmlhttp.send("search=" + search.value);
+			    });
+              </script>
+
+    </body>
+</html>

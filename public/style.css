@@ -1,0 +1,180 @@
+.LeftBar{
+    width: 30%;
+    height: 100%;
+    margin-left: 0;
+    position: fixed;
+    left: 0px;
+    background-color: #cfcfcf;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    top: 0px;
+}
+
+.Logo{
+    position: absolute;
+    top: 0px;
+    height: 18%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 10px solid #ddd;
+}
+
+.UtfaqLogo{
+    top: 0px;
+    max-width: 100%;
+    height: 89%;
+}
+
+.mainQuestions{
+    position: absolute;
+    top: 18%;
+    height: 9.5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    font-weight: bolder;
+    border-bottom: 5px dashed #ddd;
+}
+
+.MainArea{
+    width: 70%;
+    height: 100%;
+    margin-right: 0;
+    right: 0px;
+    position: fixed;
+    background-color: #a0a0a0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    top: 0px;
+}
+
+.headPage{
+    position: absolute;
+    height: 8%;
+    width: 90%;
+    left: 5%;
+    top: 1%;
+    background-color: #f5f573;
+    border-radius: 15px;
+}
+
+.Intro{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    font-size: 150%;
+    color: #989898;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    font-weight: bolder;
+}
+.IntroTxt{
+    margin: 0;
+    margin-top: 2%;
+}
+
+.RestrictedArea{
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    right: 0;
+    top: 5%;
+}
+
+.Send{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 11%;
+    display: flex;
+    justify-content: center;
+    border-top: 3px dashed #cfcfcf;
+    align-items: center;
+}
+
+.RestArea{
+    margin-left: 10%;
+    margin-top: 2.5%;
+    width: 80%;
+    height: 80%;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    background: ##c6c987;
+    color: #3b3b39;
+    cursor: pointer;
+}
+
+.Conversation{
+    position: absolute;
+    width: 96%;
+    height: 68%;
+}
+
+/*.Main form input {
+    position: absolute;
+
+    height: 95%;
+    width: 100%;
+    padding: 0 20px;
+    font-size: 16px;
+    
+}*/
+
+.newMsg{
+    position: absolute;
+    width: 89%;
+    height: 100%;
+    left: 0;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color: #979797;
+    font-size: large;
+}
+
+.sendBtn{
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    right: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    background: ##c6c987;
+    color: #3b3b39;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.Chat{
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    width: 96.5%;
+    height: 77%;
+    background-color:#f3f3f3;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-image: url(/assets/chatBckgrnd.png);
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+}
+
+.Questions{
+    width: 100%;
+    height: 100%;
+    top: 27.5%;
+    position: absolute;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+}
